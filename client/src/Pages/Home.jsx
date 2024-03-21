@@ -10,7 +10,7 @@ export const Home = () => {
         try {
             const formData = new FormData();
             formData.append('file', file);
-            const response = await axios.post("https://dev-n9lp.onrender.com/api/upload/images/", formData);
+            const response = await axios.post("http://localhost:1337/api/upload/images/", formData);
             console.log(response.data);
         } catch (error) {
             console.log(error);

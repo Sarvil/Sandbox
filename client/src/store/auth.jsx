@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
             const token = localStorage.getItem('token');
             if (token != null) {
                 const tokenStr = "Bearer " + token;
-                const response = await fetch("https://dev-n9lp.onrender.com/api/auth/user", {
+                const response = await fetch("http://localhost:1337/api/auth/user", {
                     method: "GET",
                     headers: {
                         Authorization: tokenStr,
@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
     // To fetch Services data from back end
     const getServices = async () => {
         try {
-            const response = await fetch("https://dev-n9lp.onrender.com/api/data/service", {
+            const response = await fetch("http://localhost:1337/api/data/service", {
                 method: "GET",
             });
             if (response.ok) {
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }) => {
 
     const getQuestions = async () => {
         try {
-            const response = await fetch("https://dev-n9lp.onrender.com/api/data/questions", {
+            const response = await fetch("http://localhost:1337/api/data/questions", {
                 method: "GET",
             });
             if (response.ok) {

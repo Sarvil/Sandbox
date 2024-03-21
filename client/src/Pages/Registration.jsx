@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth"
 
-const URL = "https://dev-n9lp.onrender.com/api/auth/register/";
+const URL = "http://localhost:1337/api/auth/register/";
 
 export const Registration = () => {
 

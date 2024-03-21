@@ -3,7 +3,7 @@ import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-const URL = "https://dev-n9lp.onrender.com/api/auth/login/";
+const URL = "http://localhost:1337/api/auth/login/";
 
 export const Login = () => {
 

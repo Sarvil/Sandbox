@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 
-const URL = "https://dev-n9lp.onrender.com/api/form/contact/";
+const URL = "http://localhost:1337/api/form/contact/";
 
 export const Contact = () => {
 
