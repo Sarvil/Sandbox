@@ -46,7 +46,7 @@ export const Registration = () => {
                     phoneNo: "",
                     password: ""
                 });
-                navigate("/Login")
+                navigate("/Login");
             } else {
                 alert(res_data.extradetails ? res_data.extradetails : res_data.message);
             }
