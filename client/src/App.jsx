@@ -11,6 +11,7 @@ import {useAuth} from "./store/auth";
 import { Footer } from "./Components/Footer";
 
 const App = () => {
+    
     const isLoggedIn = useAuth();
     return (
         <>

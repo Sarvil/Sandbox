@@ -3,7 +3,7 @@ import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-const URL = "http://localhost:1337/api/auth/login/";
+const URL = import.meta.env.VITE_BACKEND_URL+"/api/auth/login/";
 
 export const Login = () => {
 

@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
             console.log("Token: " + token);
             if (token != null) {
                 const tokenStr = "Bearer " + token;
-                const response = await fetch("http://localhost:1337/api/auth/user", {
+                const response = await fetch(import.meta.env.VITE_BACKEND_URL+"/api/auth/user", {
                     method: "GET",
                     headers: {
                         Authorization: tokenStr,
@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }) => {
     // To fetch Services data from back end
     const getServices = async () => {
         try {
-            const response = await fetch("http://localhost:1337/api/data/service", {
+            const response = await fetch(import.meta.env.VITE_BACKEND_URL+"/api/data/service", {
                 method: "GET",
             });
             if (response.ok) {
@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }) => {
 
     const getQuestions = async () => {
         try {
-            const response = await fetch("http://localhost:1337/api/data/questions", {
+            const response = await fetch(import.meta.env.VITE_BACKEND_URL+"/api/data/questions", {
                 method: "GET",
             });
             if (response.ok) {

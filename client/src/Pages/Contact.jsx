@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 
-const URL = "http://localhost:1337/api/form/contact/";
+const URL = import.meta.env.VITE_BACKEND_URL+"/api/form/contact/";
 
 export const Contact = () => {
 

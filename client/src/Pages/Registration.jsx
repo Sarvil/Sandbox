@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const URL = "http://localhost:1337/api/auth/register/";
+const URL = import.meta.env.VITE_BACKEND_URL+"/api/auth/register/";
 
 export const Registration = () => {
 
