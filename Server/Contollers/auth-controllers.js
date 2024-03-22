@@ -75,24 +75,23 @@ const login = async (req, res) => {
         }
 
         const user = await userExist.comparePassword(password);
-
-        if(!user.verified){
-            let token = await Token.findOne({userId: user._id});
-            if(!token){
-                const token = await new Token({
-                    userId: userExist._id,
-                    token: crypto.randomBytes(32).toString("hex")
-                }).save();
-                const URL = `${process.env.BACKEND_URL}/api/auth/user/${token.userId}/verify/${token.token}`;
-                verifyLink = `/user/${token.userId}/verify/${token.token}`;
-                console.log(verifyLink);
-                await sendMail(userExist.email, "Verify Email", URL);
-            }
-            return res.status(400).json({message: "An Email has been sent to you email. please verify"});
-        }
-
+  
         console.log(user);
         if (user) {
+
+            if(!Boolean(userExist.isVerified)){
+                let token = await emailToken.findOne({userId: userExist._id});
+                if(!token){
+                    const token = await new emailToken({
+                        userId: userExist._id,
+                        token: crypto.randomBytes(32).toString("hex")
+                    }).save();
+                    const URL = `${process.env.BACKEND_URL}/api/auth/user/${token.userId}/verify/${token.token}`;
+                    await sendMail(userExist.email, "Verify Email", URL);
+                }
+                return res.status(400).json({message: "An Email has been sent to you email. please verify"});
+            }
+
             res.status(200).json({
                 message: "Login Successful",
                 token: await userExist.generateToken(),

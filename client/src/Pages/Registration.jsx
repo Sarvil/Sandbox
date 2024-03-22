@@ -47,7 +47,6 @@ export const Registration = () => {
                     phoneNo: "",
                     password: ""
                 });
-                navigate("/login");
             } else {
                 alert(res_data.extradetails ? res_data.extradetails : res_data.message);
             }

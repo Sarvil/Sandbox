@@ -12,8 +12,12 @@ export const AuthProvider = ({ children }) => {
     const [questions, setQuestions] = useState([]);
 
     const storeTokenInLS = (serverToken) => {
-        setToken(serverToken);
-        return localStorage.setItem('token', serverToken);
+        console.log("UserData: "+user.isVerified);
+        console.log(serverToken);
+        if(user.isVerified){
+            setToken(serverToken);
+            return localStorage.setItem('token', serverToken);
+        }
     };
 
     let isLoggedIn = !!token;
@@ -28,6 +32,7 @@ export const AuthProvider = ({ children }) => {
 
     const userAuthentication = async () => {
         try {
+            console.log("UserAUth: is called");
             const token = localStorage.getItem('token');
             if (token != null) {
                 const tokenStr = "Bearer " + token;
@@ -39,6 +44,7 @@ export const AuthProvider = ({ children }) => {
                 });
                 if (response.ok) {
                     const data = await response.json();
+                    console.log("In user Auth: "+data.userData);
                     setUser(data.userData);
                 }
                 else {
