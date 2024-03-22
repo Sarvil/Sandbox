@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./Pages/Home";
-import { About } from "./Pages/About";
 import { Services } from "./Pages/Services";
 import { Contact } from "./Pages/Contact";
 import { Registration } from "./Pages/Registration";
@@ -9,6 +8,7 @@ import { Logout } from "./Pages/Logout";
 import { Navbar } from "./Components/Navbar";
 import GoToTop from "./Components/GoToTop";
 import {useAuth} from "./store/auth";
+import { Footer } from "./Components/Footer";
 
 const App = () => {
     const isLoggedIn = useAuth();
@@ -18,7 +18,6 @@ const App = () => {
                 <Navbar />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
                     <Route path="/services" element={<Services />} />
                     <Route path="/Contact" element={<Contact />} />
                     <Route path="/registration" element={<Registration />} />
@@ -28,6 +27,7 @@ const App = () => {
                     }
                 </Routes>
                 <GoToTop />
+                <Footer/ >
             </BrowserRouter>
         </>
     );

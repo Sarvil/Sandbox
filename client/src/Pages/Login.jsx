@@ -55,19 +55,16 @@ export const Login = () => {
                 <main>
                     <div className="section-login">
                         <div className="container grid grid-two-cols">
-                            <div className="login-image">
-                                <img src="/images/Sukhoi.png" alt="Sukhoi" width="auto" height="500" />
-                            </div>
                             <div className="login-form">
                                 <h1 className="main-heading mb-3" >Login</h1>
                                 <br />
                                 <form onSubmit={handleLoginSubmit}>
                                     <div>
-                                        <label htmlFor="email">Email ID: </label>
+                                        <label htmlFor="email">Email ID </label><br/>
                                         <input type="email" name="email" placeholder="Email ID" id="email" required autoComplete="off" value={user.email} onChange={handleInput} />
                                     </div>
                                     <div>
-                                        <label htmlFor="passowrd">Password: </label>
+                                        <label htmlFor="passowrd">Password </label><br/>
                                         <input type="password" name="password" placeholder="Password" id="password" required autoComplete="off" value={user.password} onChange={handleInput} />
                                     </div>
                                     <br />

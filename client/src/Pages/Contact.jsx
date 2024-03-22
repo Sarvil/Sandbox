@@ -61,24 +61,20 @@ export const Contact = () => {
                 <main>
                     <div className="section-contact">
                         <div className="container grid grid-two-cols">
-                            <div className="contact-image">
-                                <img src="/images/Sukhoi.png" alt="Sukhoi" width="500" height="700" />
-                            </div>
                             <div className="contact-form">
                                 <h1 className="main-heading mb3">Contact Us</h1>
                                 <br />
                                 <form onSubmit={handleContactSubmit}>
                                     <div>
-                                        <label htmlFor="username">Username: </label>
-                                        <input type="input" name="username" placeholder="Username" id="username" required autoComplete="off" value={contact.username} onChange={handleInput} />
+                                        <label htmlFor="username">Username: </label><br />
+                                        <input type="text" name="username" placeholder="Username" id="username" required autoComplete="off" value={contact.username} onChange={handleInput} />
                                     </div>
                                     <div>
-                                        <label htmlFor="email">Email ID: </label>
+                                        <label htmlFor="email">Email ID: </label><br />
                                         <input type="email" name="email" placeholder="Email ID" id="email" required autoComplete="off" value={contact.email} onChange={handleInput} />
                                     </div>
                                     <div>
-                                        <label htmlFor="message">Message: </label>
-                                        <br />
+                                        <label htmlFor="message">Message: </label><br />
                                         <textarea name="message" id="message" rows="10" cols="30" required autoComplete="off" value={contact.message} onChange={handleInput} ></textarea>
                                     </div>
                                     <br />

@@ -1,33 +1,17 @@
-import { useState } from "react";
-import FormData from 'form-data'
-import axios from "axios";
 import { useAuth } from "../store/auth";
 import { AddQuestion } from "../Components/AddQuestion";
 
 export const Home = () => {
-    const [file, setFile] = useState();
-    const upload = async () => {
-        try {
-            const formData = new FormData();
-            formData.append('file', file);
-            const response = await axios.post("http://localhost:1337/api/upload/images/", formData);
-            console.log(response.data);
-        } catch (error) {
-            console.log(error);
-        }
 
-    }
-
-    const { questions } = useAuth();
-    const {isLoggedIn} = useAuth();
+    const { questions, isLoggedIn, user } = useAuth();
     console.log(isLoggedIn);
 
     return (
         <>
             <div className="center-page">
-                <h1>HOME PAGE</h1>
-                <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-                <button type="button" onClick={upload}>Upload</button>
+                <div>
+                    <h1>hello, {user.username ? user.username + " To the Website" : "Welcome to the Website"}</h1>
+                </div>
                     {
                         isLoggedIn ? <AddQuestion /> : <br/>
                     }

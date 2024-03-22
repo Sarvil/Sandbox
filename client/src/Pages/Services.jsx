@@ -12,7 +12,7 @@ export const Services = () => {
                     services.map((curElem, index) => {
                         const { service, description, price, provider } = curElem;
                         return (
-                            <div key={index}>
+                            <div className="services-page services-box" key={index}>
                                 <p>{service}</p>
                                 <p>{description}</p>
                                 <p>{price}</p>
