@@ -4,7 +4,7 @@ import {toast} from "react-toastify";
 import FormData from 'form-data'
 import axios from "axios";
 
-const URL = "http://localhost:1337/api/upload/question";
+const URL = "https://dev-n9lp.onrender.com/api/upload/question";
 
 export const AddQuestion = () => {
 
@@ -32,7 +32,7 @@ const [file, setFile] = useState();
         try {
             const formData = new FormData();
             formData.append('file', file);
-            const response = await axios.post("http://localhost:1337/api/upload/images/", formData);
+            const response = await axios.post("https://dev-n9lp.onrender.com/api/upload/images/", formData);
             console.log(response.data);
         } catch (error) {
             console.log(error);

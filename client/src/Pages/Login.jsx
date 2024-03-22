@@ -41,11 +41,10 @@ export const Login = () => {
                 navigate("/");
                 userAuthentication();
             } else {
-                console.log(response.status);
                 toast.error(res_data.extradetails ? res_data.extradetails : res_data.message);
             }
         } catch (error) {
-            console.log(error);
+            toast.error(error.extradetails ? error.extradetails : error.message);
         }
     };
 

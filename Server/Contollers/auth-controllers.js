@@ -71,6 +71,7 @@ const login = async (req, res) => {
         const userExist = await User.findOne({ email });
         console.log(userExist);
         if (!userExist) {
+
             return res.status(400).json({ message: "Invalid Credentials" });
         }
 
@@ -92,18 +93,18 @@ const login = async (req, res) => {
                 return res.status(400).json({message: "An Email has been sent to you email. please verify"});
             }
 
-            res.status(200).json({
+            return res.status(200).json({
                 message: "Login Successful",
                 token: await userExist.generateToken(),
                 userId: userExist._id.toString(),
                 isVerified: userExist.isVerified,
             });
         } else {
-            res.status(401).json({ message: "Invalid Email or Password" });
+            return res.status(401).json({ message: "Invalid Email or Password" });
         }
     } catch (err) {
         console.error(err);
-        res.status(500).json({ message: "Internal server Error while Login" });
+        return res.status(500).json({ message: "Internal server Error while Login" });
         //next(err);
     }
 };

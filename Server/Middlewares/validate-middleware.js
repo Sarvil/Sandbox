@@ -13,7 +13,7 @@ const validate = (schema) => async (req, res, next) => {
             extradetails
         };
         console.log(error);
-        //res.status(400).json({ msg: message });
+        res.status(400).json(error);
         next(error);
     }
 };

@@ -49,7 +49,7 @@ export const Registration = () => {
                 toast.success("Email has been sent to your email\nPlease Verify.");
                 navigate("/Login");
             } else {
-                alert(res_data.extradetails ? res_data.extradetails : res_data.message);
+                toast.error(res_data.extradetails ? res_data.extradetails : res_data.message);
             }
         } catch (error) {
             console.log(error);
