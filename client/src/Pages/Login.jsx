@@ -36,7 +36,7 @@ export const Login = () => {
             });
             const res_data = await response.json();
             if (response.ok) {
-                storeTokenInLS(res_data.token);
+                storeTokenInLS(res_data.token, res_data.isVerified);
                 toast.success("login Successful");
                 navigate("/");
                 userAuthentication();

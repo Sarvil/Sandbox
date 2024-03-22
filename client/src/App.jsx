@@ -8,8 +8,10 @@ import { Login } from "./Pages/Login";
 import { Logout } from "./Pages/Logout";
 import { Navbar } from "./Components/Navbar";
 import GoToTop from "./Components/GoToTop";
+import {useAuth} from "./store/auth";
 
 const App = () => {
+    const isLoggedIn = useAuth();
     return (
         <>
             <BrowserRouter>
@@ -21,7 +23,9 @@ const App = () => {
                     <Route path="/Contact" element={<Contact />} />
                     <Route path="/registration" element={<Registration />} />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/logout" element={<Logout />} />
+                    {
+                    isLoggedIn ? <Route path="/logout" element={<Logout />} /> : <></>
+                    }
                 </Routes>
                 <GoToTop />
             </BrowserRouter>

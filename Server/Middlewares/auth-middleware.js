@@ -5,7 +5,8 @@ const authMiddleware = async (req, res, next) => {
     const token = req.header("Authorization");
     console.log(token);
     if (!token) {
-        return res.status(401).json({ message: "Unauthorized HTTP hello, Token not provided" });
+        //return res.status(401).json({ message: "Unauthorized HTTP hello, Token not provided" });
+        next(error);
     }
 
     const jwtToken = token.replace("Bearer", "").trim();
@@ -18,7 +19,8 @@ const authMiddleware = async (req, res, next) => {
         req.userID = userData._id;
         next();
     } catch (error) {
-        return res.status(401).json({ message: "Unauthorized HTTP, Token not provided" });
+        //return res.status(401).json({ message: "Unauthorized HTTP, Token not provided" });
+        next(error);
     }
 
 };

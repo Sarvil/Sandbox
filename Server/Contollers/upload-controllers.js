@@ -9,7 +9,7 @@ const question = async (req, res) => {
         return res.status(200).json({ message: "Question successfully Uploaded" });
     } catch (error) {
         next(error);
-        return res.status(500).json({ message: "Question successfully NOT Uploaded" });
+        //return res.status(500).json({ message: "Question successfully NOT Uploaded" });
     }
 };
 

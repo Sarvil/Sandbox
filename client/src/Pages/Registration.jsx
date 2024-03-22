@@ -40,7 +40,7 @@ export const Registration = () => {
             console.log(res_data);
 
             if (response.ok) {
-                storeTokenInLS(res_data.token);
+                //storeTokenInLS(res_data.token);
                 setUser({
                     username: "",
                     email: "",

@@ -2,14 +2,14 @@ import { useState } from "react";
 import { useAuth } from "../store/auth";
 import {toast} from "react-toastify";
 
-const URL = "https://dev-n9lp.onrender.com/api/upload/question";
+const URL = "http://localhost:1337/api/upload/question";
 
 export const AddQuestion = () => {
 
 const {user} = useAuth();
 
 const [question, setQuestion] = useState({
-    "email": "",
+    "email": user.email,
     "question": "",
     "answer": "",
     "timestamp": Date.now().toString()
@@ -20,16 +20,13 @@ const handleInput = (e) => {
     let value = e.target.value;
     setQuestion({
         ...question,
+        "email": user.email,
         [name]: value,
     });
 };
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-    setQuestion({
-        ...question,
-        "email": user.email,
-    });
     try {
         const response = await fetch(URL,{
             method: "POST",

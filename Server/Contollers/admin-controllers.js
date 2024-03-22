@@ -22,7 +22,7 @@ const getAllContacts = async (req, res) => {
         }
         return res.status(200).json(contacts);
     } catch (error) {
-        console.log(error);
+        next(error);
     }
 }
 

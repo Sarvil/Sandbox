@@ -11,10 +11,10 @@ export const AuthProvider = ({ children }) => {
     const [services, setServices] = useState([]);
     const [questions, setQuestions] = useState([]);
 
-    const storeTokenInLS = (serverToken) => {
-        console.log("UserData: "+user.isVerified);
+    const storeTokenInLS = (serverToken, isVerified) => {
+        console.log("UserData: "+isVerified);
         console.log(serverToken);
-        if(user.isVerified){
+        if(isVerified && serverToken){
             setToken(serverToken);
             return localStorage.setItem('token', serverToken);
         }
@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }) => {
         try {
             console.log("UserAUth: is called");
             const token = localStorage.getItem('token');
+            console.log("Token: " + token);
             if (token != null) {
                 const tokenStr = "Bearer " + token;
                 const response = await fetch("http://localhost:1337/api/auth/user", {
@@ -42,6 +43,7 @@ export const AuthProvider = ({ children }) => {
                         Authorization: tokenStr,
                     },
                 });
+                console.log(response);
                 if (response.ok) {
                     const data = await response.json();
                     console.log("In user Auth: "+data.userData);

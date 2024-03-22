@@ -41,7 +41,7 @@ userSchema.pre("save", async function (next) {
         const hash_password = await bcrypt.hash(user.password, saltRound);
         user.password = hash_password;
     } catch (error) {
-        console.error(error);
+        next(error);
     }
 });
 
@@ -59,7 +59,7 @@ userSchema.methods.generateToken = async function () {
             }
         );
     } catch (error) {
-        console.error(error);
+        next(error);
     }
 };
 
