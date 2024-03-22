@@ -3,7 +3,6 @@ const Question = require("../Models/question-model");
 
 const services = async (req, res) => {
     try {
-        console.log("Done");
         const response = await Service.find();
         if (!response) {
             res.status(400).json({ message: "No Service Found" });

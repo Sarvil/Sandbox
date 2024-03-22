@@ -5,8 +5,6 @@ const bcrypt = require("bcryptjs");
 const sendMail = require("../Utils/sendemail");
 const crypto = require("crypto");
 
-let verifyLink = ""; 
-
 const home = async (req, res) => {
     try {
         res.status(200).send("Hello World using controllers");
@@ -36,10 +34,9 @@ const register = async (req, res) => {
             userId: userCreated._id,
             token: crypto.randomBytes(32).toString("hex")
         }).save();
-        const URL = `${process.env.FRONTEND_URL}/user/${token.userId}/verify/${token.token}`;
+
+        const URL = `${process.env.BACKEND_URL}/api/auth/user/${token.userId}/verify/${token.token}`;
         console.log(URL);
-        verifyLink = `/user/${token.userId}/verify/${token.token}`.toString();
-        console.log(verifyLink);
         await sendMail(userCreated.email, "Verify Email", URL);
         
     } catch (error) {
@@ -50,21 +47,21 @@ const register = async (req, res) => {
 
 const verifyEmail = async (req, res) => {
     try {
-        const user = await User.findOne({_id: req.params._id});
-        console.log(req.params._id);
+        console.log("In Verify Email");
+        const user = await User.findOne({_id: req.params.id});
+        console.log(req.params.id);
         if(!user) return res.status(400).json({message: "Invalid Link"});
 
-        const token = await Token.findOne({
-            userId: req.params._id,
+        const token = await emailToken.findOne({
+            userId: req.params.id,
             token: req.params.token
         });
         if(!token) return res.status(400).json({message: "Invalid Link"});
-        await User.updateOne({i_id: user._id, verified: true}); 
-        await token.remove();
+        await User.updateOne({_id: user._id, isVerified: true}); 
+        await token.deleteOne();
         res.status(200).send({message: "Email verified Successfully"});
     } catch (error) {
         console.log(error);
-        next(error);
     };
 };
 
@@ -86,8 +83,8 @@ const login = async (req, res) => {
                     userId: userExist._id,
                     token: crypto.randomBytes(32).toString("hex")
                 }).save();
-                const URL = `${process.env.BASE_URL}/user/${userId}/verify/${token.token}`;
-                verifyLink = `/user/${userId}/verify/${token.token}`;
+                const URL = `${process.env.BACKEND_URL}/api/auth/user/${token.userId}/verify/${token.token}`;
+                verifyLink = `/user/${token.userId}/verify/${token.token}`;
                 console.log(verifyLink);
                 await sendMail(userExist.email, "Verify Email", URL);
             }
@@ -121,4 +118,4 @@ const user = async (req, res) => {
     }
 }
 
-module.exports = { home, register, login, user, verifyLink, verifyEmail };
+module.exports = { home, register, login, user, verifyEmail };
