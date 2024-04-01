@@ -12,7 +12,11 @@ var userSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    phoneNo: {
+    DOB: {
+        type: Date,
+        require: true,
+    },
+    country: {
         type: String,
         require: true,
     },
@@ -22,7 +26,7 @@ var userSchema = new mongoose.Schema({
     },
     isVerified: {
         type: Boolean,
-        default: false
+        default: false,
     },
     isAdmin: {
         type: Boolean,

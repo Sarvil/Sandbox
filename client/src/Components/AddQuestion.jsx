@@ -81,12 +81,12 @@ const handleSubmit = async (e) => {
                     <textarea name="answer" placeholder="Enter Question here.. or leave blank" id="answer" required autoComplete="off" value={question.answer} onChange={handleInput} />
                 </div>
                 <br/>
-                <button type="submit" >Submit Question</button>
+                <button type="submit"  className="btn btn-submit" >Submit Question</button>
             </div>
             <div className="image-container">
                 <input type="file" onChange={(e) => setFile(e.target.files[0])} />
                 <br/>
-                <button type="button" onClick={upload}>Upload</button>
+                <button type="button" className="btn btn-submit" onClick={upload}>Upload</button>
             </div>
             </form>
             </div>

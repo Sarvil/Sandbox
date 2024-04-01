@@ -9,7 +9,8 @@ export const Registration = () => {
     const [user, setUser] = useState({
         username: "",
         email: "",
-        phoneNo: "",
+        DOB: "",
+        country: "",
         password: ""
     });
 
@@ -20,6 +21,7 @@ export const Registration = () => {
             ...user,
             [name]: value,
         });
+        console.log(value);
     };
 
     const navigate = useNavigate();
@@ -43,7 +45,8 @@ export const Registration = () => {
                 setUser({
                     username: "",
                     email: "",
-                    phoneNo: "",
+                    DOB: "",
+                    country: "",
                     password: ""
                 });
                 toast.success("Email has been sent to your email\nPlease Verify.");
@@ -74,8 +77,12 @@ export const Registration = () => {
                                     <input type="email" name="email" placeholder="Email ID" id="email" required autoComplete="off" value={user.email} onChange={handleInput} />
                                 </div>
                                 <div>
-                                    <label htmlFor="phoneNo">Phone No: </label><br/>
-                                    <input type="number" name="phoneNo" placeholder="Phone No" id="phoneNo" required autoComplete="off" value={user.phoneNo} onChange={handleInput} />
+                                    <label htmlFor="DOB">Date of Birth: </label><br/>
+                                    <input type="date" name="DOB" placeholder="Date of Birth" id="DOB" required autoComplete="off" value={user.DOB} onChange={handleInput} />
+                                </div>
+                                <div>
+                                    <label htmlFor="country">Country: </label><br/>
+                                    <input type="text" name="country" placeholder="Country" id="country" required autoComplete="off" value={user.country} onChange={handleInput} />
                                 </div>
                                 <div>
                                     <label htmlFor="password">Password: </label><br/>

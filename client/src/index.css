@@ -55,20 +55,24 @@ html{
     margin-top: 1rem;
 }
 
-.login-form, .registration-form, .contact-form{
+.login-form, .registration-form, .contact-form, .question-form{
     width: 40vw;
     align-items: center;
     text-align: left;
     margin-bottom: 25%;
 }
 
-input[type=text], input[type=email], input[type=password], input[type=number]{
+.question-form{
+    margin-bottom: 0%;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=number], input[type=date]{
     border-radius: 5px;
     width: 22rem;
     height: 2rem;
 }
 
-input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, input[type=number]:focus{
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, input[type=number]:focus, , input[type=date]:focus{
     border: 3px solid #fff;
 }
 

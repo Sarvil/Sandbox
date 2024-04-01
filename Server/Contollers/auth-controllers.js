@@ -15,7 +15,7 @@ const home = async (req, res) => {
 
 const register = async (req, res) => {
     try {
-        const { username, email, phoneNo, password } = req.body;
+        const { username, email, DOB, country, password } = req.body;
 
         const userExist = await User.findOne({ email });
 
@@ -23,7 +23,7 @@ const register = async (req, res) => {
             return res.status(400).json({ message: "User already exists" });
         }
 
-        const userCreated = await User.create({ username, email, phoneNo, password });
+        const userCreated = await User.create({ username, email, DOB, country, password });
         res.status(201).json({
             message: "Registration Successful",
             token: await userCreated.generateToken(),
