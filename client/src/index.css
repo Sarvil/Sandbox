@@ -28,6 +28,7 @@ html{
 .center-page {
     text-align:left;
     margin-left:5%;
+    max-width:80vw;
 }
 
 .grid {
@@ -45,10 +46,12 @@ html{
 }
 
 .question-box, .services-box{
-    max-width:100vw;
+    max-width:90vw;
     padding:0.5rem;
     border:solid 1px;
     margin:1rem;
+    margin-left: 10%;
+    
 }
 
 .image-container{
@@ -60,6 +63,7 @@ html{
     align-items: center;
     text-align: left;
     margin-bottom: 25%;
+    margin-left: 10%;
 }
 
 .question-form{
@@ -83,9 +87,10 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, inp
 }
 
 .footer{
-    position: fixed;
-    left: 0;
+    position: relative;
+    left: 25%;
     bottom: 0;
-    width: 100%;
+    width: 50%;
     justify-content: center;
+    text-align: center;
 }

@@ -10,7 +10,7 @@ export const Home = () => {
         <>
             <div className="center-page">
                 <div>
-                    <h1>hello, {user.username ? user.username + " To the Website" : "Welcome to the Website"}</h1>
+                    <h2>hello, {user.username ? user.username + " To the Website" : "Welcome to the Website"}</h2>
                 </div>
                     {
                         isLoggedIn ? <AddQuestion /> : <br/>

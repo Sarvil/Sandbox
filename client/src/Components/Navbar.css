@@ -33,7 +33,7 @@ li:hover{
 
 }
 
-/* @media (max-width:798px) {
+@media screen and (max-width:798px) {
 
     .nav-list {
         visibility: hidden;
@@ -41,7 +41,7 @@ li:hover{
 
     .mobile-navbar-btn {
         max-width:100%;
-        position:absolute;
+        position:fixed;
         top:5%;
         right: 5%;
         display: inline-block;
@@ -52,4 +52,4 @@ li:hover{
            color: white;
         }
     }
-} */
+}

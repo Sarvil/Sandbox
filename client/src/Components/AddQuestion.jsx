@@ -62,7 +62,7 @@ const handleSubmit = async (e) => {
     return(
         <>
             <div className="question-form">
-            <h1>Add Question</h1>
+            <h3>Add Question</h3>
                 <div>
                     <label>Username : {user.username}</label>
                 </div>
