@@ -4,7 +4,6 @@ import { AddQuestion } from "../Components/AddQuestion";
 export const Home = () => {
 
     const { questions, isLoggedIn, user } = useAuth();
-    console.log(isLoggedIn);
 
     return (
         <>

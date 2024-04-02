@@ -28,28 +28,56 @@ li:hover{
     }
 }
 
-.mobile-navbar-btn[name="close-outline"]{
-    display: none;
-
-}
-
 @media screen and (max-width:798px) {
-
-    .nav-list {
-        visibility: hidden;
+    
+    .mobile-navbar-btn{
+        display: inline-block;
+        position: absolute;
+        top: 5%;
+        right: 8%;
+        font-size: 2rem;
     }
 
-    .mobile-navbar-btn {
-        max-width:100%;
-        position:fixed;
-        top:5%;
-        right: 5%;
+    .nav-list {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transform: translateX(100%);
+        flex-direction: column;
+    }
+
+    .active .nav-list{
+        visibility: visible;
+        background-color: black;
+        z-index: 999;
+        transform: translateX(0);
+    }
+
+    .active .mobile-navbar-btn{
+        display: inline-block;
+        position: absolute;
+        top: 5%;
+        right: 8%;
+        font-size: 2rem;
+        
+    }
+    .active .close-outline{
+        display: inline-block;
+        position: absolute;
+        top: 5%;
+        right: 8%;
+        font-size: 2rem;
         display: inline-block;
         z-index: 999;
+    }
 
-        .mobile-nav-icon {
-           font-size: 50px;
-           color: white;
-        }
+    .mobile-navbar-btn:hover{
+        cursor: pointer;
     }
 }
