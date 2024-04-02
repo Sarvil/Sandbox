@@ -8,7 +8,7 @@ const GoToTop = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     const listenToScroll = () => {
-        let heightToHidden = 225;
+        let heightToHidden = 10;
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         if (winScroll > heightToHidden) {
             setIsVisible(true);
@@ -50,12 +50,9 @@ const Wrapper = styled.section`
   .top-btn{
       font-size: 2rem;
       border-radius: 50%;
-      width: 5rem;
-      height: 5rem;
       background-color: blue;
       position: fixed;
-      bottom: 5rem;
-      right: 5rem;
+      
       z-index; 999;
       display: flex;
       align-items: center;
