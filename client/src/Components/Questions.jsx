@@ -1,11 +1,6 @@
 
 export const Questions = ({element}) => {
-    if(element == undefined || element == undefined)
-    {
-        return(<></>);
-    }
-    else{
-        const {email, question, answer, answers} = element;
+    const {email, question, answer, answers} = element;
         return (
             <>
             <div className="questions-box">
@@ -24,7 +19,4 @@ export const Questions = ({element}) => {
             }
             </>
         );
-    }
-
-    
 };

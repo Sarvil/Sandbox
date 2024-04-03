@@ -7,8 +7,8 @@ import axios from "axios";
 const URL = import.meta.env.VITE_BACKEND_URL+"/api/upload/question";
 
 export const AddQuestion = () => {
-
-const {user} = useAuth();
+console.log("AddQuestion Rendered");
+const {user, setRender} = useAuth();
 
 const [toggle, setToggle] = useState(false);
 
@@ -27,7 +27,6 @@ const handleInput = (e) => {
         "email": user.email,
         [name]: value,
     });
-
 };
 
 const [file, setFile] = useState();
@@ -59,6 +58,9 @@ const handleSubmit = async (e) => {
         });
         if(response.ok){
             console.log(question);
+            setToggle(false);
+            setRender(true);
+            setRender(false);
             toast.success("Question Successfully Added");
         }
     }catch(error){

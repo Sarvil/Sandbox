@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState("");
     const [services, setServices] = useState([]);
     const [questions, setQuestions] = useState([]);
+    const [render, setRender] = useState(false);
 
     const storeTokenInLS = (serverToken, isVerified) => {
         console.log("UserData: "+isVerified);
@@ -41,10 +42,8 @@ export const AuthProvider = ({ children }) => {
                         Authorization: tokenStr,
                     },
                 });
-                console.log(response);
                 if (response.ok) {
                     const data = await response.json();
-                    console.log("In user Auth: "+data.userData);
                     setUser(data.userData);
                 }
                 else {
@@ -89,10 +88,11 @@ export const AuthProvider = ({ children }) => {
         getServices();
         getQuestions();
         userAuthentication();
-    }, []);
+        setRender();
+    }, [render]);
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, services, getQuestions, questions, userAuthentication }}>
+        <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, services, getQuestions, questions, setQuestions, setRender, userAuthentication }}>
             {children}
         </AuthContext.Provider>
     );
