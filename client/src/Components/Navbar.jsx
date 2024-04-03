@@ -8,7 +8,6 @@ export const Navbar = () => {
     const { isLoggedIn } = useAuth();
     
     const [openMenu, setOpenMenu] = useState(false);
-    console.log(openMenu);
 
     return (
         <>

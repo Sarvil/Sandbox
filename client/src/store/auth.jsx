@@ -32,9 +32,7 @@ export const AuthProvider = ({ children }) => {
 
     const userAuthentication = async () => {
         try {
-            console.log("UserAUth: is called");
             const token = localStorage.getItem('token');
-            console.log("Token: " + token);
             if (token != null) {
                 const tokenStr = "Bearer " + token;
                 const response = await fetch(import.meta.env.VITE_BACKEND_URL+"/api/auth/user", {
@@ -81,7 +79,6 @@ export const AuthProvider = ({ children }) => {
             if (response.ok) {
                 const data = await response.json();
                 setQuestions(data.response);
-                console.log(data.response);
             }
         } catch (error) {
             console.log("Error while fetching Questions from Back end")

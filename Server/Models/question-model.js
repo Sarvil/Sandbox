@@ -13,6 +13,10 @@ const questionSchema = new Schema({
         type: String,
         require: true,
     },
+    answers: {
+        type: Array,
+        require: true,
+    },
     timestamp: {
         type: String,
         require: true,

@@ -1,9 +1,10 @@
 import { useAuth } from "../store/auth";
 import { AddQuestion } from "../Components/AddQuestion";
+import { Questions } from "../Components/Questions";
 
 export const Home = () => {
 
-    const { questions, isLoggedIn, user } = useAuth();
+    const { isLoggedIn, user, questions } = useAuth();
 
     return (
         <>
@@ -14,23 +15,22 @@ export const Home = () => {
                     {
                         isLoggedIn ? <AddQuestion /> : <br/>
                     }
-                        <div className="questions-page">
-                            {
-                                questions.map((curElem, index) => {
-                                    const { email, question, answer, } = curElem;
-                                    return (
-                                        <div className="questions-page question-box" key={index}>
-                                            <p>EMail: {email}</p>
-                                            <p>Q: {question}</p>
-                                            <p>A: {answer}</p>
-                                            <br />
-                                        </div>
-                                    );
-                                })
+                    
+                    {
+                        questions.map((element, index) => {
+                            if(element == undefined){
+                               return(<></>);
                             }
-                        </div>
+                            else{
+                                return(
+                                    <div className="question-box" key={index}> 
+                                <Questions element={element} />
+                                </div>
+                                );
+                            }
+                        })
+                    }
             </div>
-            
         </>
     );
 };
