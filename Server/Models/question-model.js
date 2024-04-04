@@ -1,8 +1,8 @@
 const { Schema, model } = require("mongoose");
 
 const questionSchema = new Schema({
-    email: {
-        type: String,
+    user: {
+        type: Array,
         require: true,
     },
     question: {

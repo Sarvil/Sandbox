@@ -4,9 +4,10 @@ import { Questions } from "../Components/Questions";
 import { useEffect, useState } from "react";
 
 export const Home = () => {
-    console.log("Home Rendered");
+
     const { isLoggedIn, user, questions } = useAuth();
     const [render, setRender] = useState(true);
+    
     useEffect(() => {
         setRender(false);
     },[questions])

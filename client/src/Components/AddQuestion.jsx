@@ -7,13 +7,13 @@ import axios from "axios";
 const URL = import.meta.env.VITE_BACKEND_URL+"/api/upload/question";
 
 export const AddQuestion = () => {
-console.log("AddQuestion Rendered");
+
 const {user, setRender} = useAuth();
 
 const [toggle, setToggle] = useState(false);
 
 const [question, setQuestion] = useState({
-    "email": user.email,
+    "user": [user._id, user.email, user.username],
     "question": "",
     "answer": "",
     "timestamp": Date.now().toString()
@@ -24,9 +24,10 @@ const handleInput = (e) => {
     let value = e.target.value;
     setQuestion({
         ...question,
-        "email": user.email,
+        "user": user,
         [name]: value,
     });
+    console.log(question);
 };
 
 const [file, setFile] = useState();

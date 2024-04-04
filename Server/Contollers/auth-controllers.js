@@ -1,5 +1,5 @@
 'use strict'
-const User = require("../Models/user-model");
+const {User} = require("../Models/user-model");
 const emailToken = require("../Models/token-model.js");
 const bcrypt = require("bcryptjs");
 const sendMail = require("../Utils/sendemail");
