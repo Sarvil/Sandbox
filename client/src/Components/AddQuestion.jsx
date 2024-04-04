@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useAuth } from "../store/auth";
 import {toast} from "react-toastify";
-import FormData from 'form-data'
 import axios from "axios";
+import FormData from 'form-data'
 
 const URL = import.meta.env.VITE_BACKEND_URL+"/api/upload/question";
 
 export const AddQuestion = () => {
-
+    
 const {user, setRender} = useAuth();
 
 const [toggle, setToggle] = useState(false);
@@ -90,7 +90,7 @@ const handleSubmit = async (e) => {
                     </div>
                     <div>
                         <label htmlFor="answer">Enter the Answer: </label>
-                        <textarea name="answer" placeholder="Enter Question here.. or leave blank" id="answer" required autoComplete="off" value={question.answer} onChange={handleInput} />
+                        <textarea name="answer" placeholder="Enter Answer here.. or leave blank" id="answer" required autoComplete="off" value={question.answer} onChange={handleInput} />
                     </div>
                     <br/>
                     <button type="submit"  className="btn btn-submit" >Submit Question</button>
