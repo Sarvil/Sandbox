@@ -1,8 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 const questionSchema = new Schema({
+    _id: {
+        type: String,
+    },
     user: {
-        type: Array,
+        type: Object,
         require: true,
     },
     question: {
@@ -14,7 +17,7 @@ const questionSchema = new Schema({
         require: true,
     },
     answers: {
-        type: Array,
+        type: [Object],
         require: true,
     },
     timestamp: {

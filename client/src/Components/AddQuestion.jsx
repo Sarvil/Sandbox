@@ -7,13 +7,14 @@ import FormData from 'form-data'
 const URL = import.meta.env.VITE_BACKEND_URL+"/api/upload/question";
 
 export const AddQuestion = () => {
-    
+
 const {user, setRender} = useAuth();
 
 const [toggle, setToggle] = useState(false);
 
 const [question, setQuestion] = useState({
-    "user": [user._id, user.email, user.username],
+    "_id": Math.random().toString(36),
+    "user": user,
     "question": "",
     "answer": "",
     "timestamp": Date.now().toString()
@@ -27,7 +28,6 @@ const handleInput = (e) => {
         "user": user,
         [name]: value,
     });
-    console.log(question);
 };
 
 const [file, setFile] = useState();

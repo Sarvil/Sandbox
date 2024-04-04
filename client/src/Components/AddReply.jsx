@@ -1,11 +1,13 @@
 import { useState } from "react";
 import {toast} from "react-toastify";
 
+
 const URL = import.meta.env.VITE_BACKEND_URL+"/api/upload/reply";
 
 export const AddReply = ({questionData}) => {
-
+    console.log(questionData);
     const [reply, setReply] = useState({
+        "_id": Math.random().toString(36),
         "question": questionData,
         "answer": "",
         "timestamp": Date.now().toString()
@@ -19,7 +21,6 @@ export const AddReply = ({questionData}) => {
             "question": questionData,
             [name]: value,
         });
-        console.log(reply);
     };
 
     const handleSubmit = async (e) => {

@@ -4,7 +4,6 @@ import { useState } from "react";
 export const Questions = ({element}) => {
     const [renderReply, setRenderReply] = useState(false);
     const {user, question, answer, answers} = element;
-    console.log(element);
 
     const handleRender = () => {
         renderReply ? setRenderReply(false) : setRenderReply(true);
@@ -13,7 +12,7 @@ export const Questions = ({element}) => {
         return (
             <>
             <div className="questions-box">
-                <h1>: {user[0].username}</h1>
+                <h1>: {user.username}</h1>
                 {question ? <h1>question: {question}</h1> : <></>}
                 <h1>Answer: {answer}</h1>
                 <button type="input" className="btn btn-submit" onClick={handleRender}>Reply</button>
