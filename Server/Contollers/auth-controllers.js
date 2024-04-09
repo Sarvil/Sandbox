@@ -1,6 +1,6 @@
 'use strict'
-const {User} = require("../Models/user-model");
-const emailToken = require("../Models/token-model.js");
+const User = require("../Models/user-model");
+const emailToken = require("../Models/token-model");
 const bcrypt = require("bcryptjs");
 const sendMail = require("../Utils/sendemail");
 const crypto = require("crypto");
@@ -16,6 +16,7 @@ const home = async (req, res) => {
 const register = async (req, res) => {
     try {
         const { username, email, DOB, country, password } = req.body;
+        console.log("Request: " + req.body.email)
 
         const userExist = await User.findOne({ email });
 

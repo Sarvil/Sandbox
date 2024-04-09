@@ -21,7 +21,6 @@ export const Registration = () => {
             ...user,
             [name]: value,
         });
-        console.log(value);
     };
 
     const navigate = useNavigate();
@@ -38,7 +37,6 @@ export const Registration = () => {
             });
 
             const res_data = await response.json();
-            console.log(res_data);
 
             if (response.ok) {
                 //storeTokenInLS(res_data.token);
